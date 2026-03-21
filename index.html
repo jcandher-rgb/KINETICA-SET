@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>KINETICA-SET</title>
+
+<!-- ═══ PWA: INSTALABLE EN iOS / ANDROID / PC ═══ -->
+<meta name="application-name" content="KINETICA-SET">
+<meta name="description" content="Simulador de Enfrentamiento Táctico — Infantería de Marina">
+
+<!-- iOS Safari: instalar en pantalla de inicio -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="KINETICA">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0b0f19">
+
+<!-- Icono para iOS homescreen (SVG inline via data URI) -->
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<!-- Web App Manifest embebido -->
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22KINETICA-SET%22%2C%22short_name%22%3A%22KINETICA%22%2C%22description%22%3A%22Simulador%20de%20Enfrentamiento%20T%C3%A1ctico%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230b0f19%22%2C%22theme_color%22%3A%22%230b0f19%22%2C%22orientation%22%3A%22portrait-primary%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%3D%2527http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%2527%2520viewBox%3D%25270%25200%2520512%2520512%2527%253E%253Crect%2520width%3D%2527512%2527%2520height%3D%2527512%2527%2520rx%3D%2527100%2527%2520fill%3D%2527%25230b0f19%2527%2F%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+
+<!-- Banner de instalación iOS (se muestra si no está instalada) -->
+<style id="pwa-banner-style">
+  #pwa-banner {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: #1e293b; border-top: 2px solid #38bdf8;
+    padding: 14px 18px; font-family: 'Roboto Condensed', sans-serif;
+    color: #e2e8f0; font-size: 13px;
+  }
+  #pwa-banner.visible { display: flex; align-items: center; gap: 12px; }
+  #pwa-banner-ico { font-size: 28px; flex-shrink: 0; }
+  #pwa-banner-txt { flex: 1; line-height: 1.4; }
+  #pwa-banner-txt strong { color: #38bdf8; display: block; font-size: 14px; margin-bottom: 2px; }
+  #pwa-banner-close {
+    background: transparent; border: 1px solid #334155; color: #94a3b8;
+    border-radius: 4px; padding: 6px 10px; cursor: pointer; font-size: 11px;
+    font-family: 'Roboto Condensed', sans-serif; flex-shrink: 0;
+  }
+</style>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+  :root {
+    /* ── MODO TÁCTICO (DARK C2 MODE) ── */
+    --bg:        #0b0f19;
+    --panel:     #111827;
+    --panel-sub: #1f2937;
+    --text:      #e2e8f0;
+    --muted:     #94a3b8;
+    --border:    #334155;
+    --borderB:   #1e293b;
+    
+    /* Colores Doctrinales */
+    --blue:      #38bdf8; 
+    --blueD:     #1e3a8a;
+    --red:       #f87171; 
+    --redD:      #7f1d1d;
+    --gold:      #fbbf24; 
+    --goldD:     #78350f;
+    --green:     #4ade80; 
+    --greenD:    #14532d;
+    --warn:      #f59e0b;
+  }
+
+  body.light-mode {
+    /* ── MODO PROYECTOR (LIGHT ACADEMIC MODE) ── */
+    --bg:        #f8fafc;
+    --panel:     #ffffff;
+    --panel-sub: #f1f5f9;
+    --text:      #0f172a;
+    --muted:     #64748b;
+    --border:    #cbd5e1;
+    --borderB:   #e2e8f0;
+    
+    /* Colores Doctrinales */
+    --blue:      #2563eb; 
+    --blueD:     #eff6ff;
+    --red:       #dc2626; 
+    --redD:      #fef2f2;
+    --gold:      #d97706; 
+    --goldD:     #fffbeb;
+    --green:     #16a34a; 
+    --greenD:    #f0fdf4;
+    --warn:      #d97706;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent;}
+
+  body {
+    background: var(--bg);
+    font-family: 'Roboto Condensed', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 60px;
+    transition: background 0.3s, color 0.3s;
+    cursor: default;
+  }
+
+  /* ── HEADER ── */
+  #header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 22px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 15px; }
+  .logo { display:flex; align-items:center; gap:8px; font-size: 22px; color: var(--blue); font-weight: bold; border: 2px solid var(--blue); padding: 4px 10px; border-radius: 4px; letter-spacing: 2px; }
+  .title-group h1 { font-family: 'Roboto Condensed', sans-serif; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; color: var(--text); font-weight: 700;}
+  .title-group p { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 0; }
+  
+  .theme-toggle {
+    background: var(--panel-sub); border: 1px solid var(--border); color: var(--text);
+    padding: 6px 12px; font-size: 11px; cursor: pointer; font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 4px; font-weight: bold; text-transform: uppercase; transition: all 0.2s; letter-spacing: 0.5px;
+  }
+  .theme-toggle:hover { background: var(--border); }
+
+  /* ── LAYOUT & PANELS ── */
+  #wrap { max-width:1320px; margin:0 auto; padding:18px 14px; }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px;
+    margin-bottom: 16px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .panel.top-env { border-top: 3px solid var(--gold); }
+  .panel.sub-win { background: var(--panel-sub); border: 1px solid var(--borderB); border-style: dashed; margin-top: -10px; margin-bottom: 16px; border-top: none; border-radius: 0 0 4px 4px; }
+  
+  /* Banderas Tácticas Superiores */
+  #panel-prop { border-top: 3px solid var(--blue); }
+  #panel-ene  { border-top: 3px solid var(--red); }
+
+  .panel.result { border-width: 2px; }
+
+  /* ── GRID ── */
+  .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px; }
+  .grid4 { display:grid; grid-template-columns: repeat(4,1fr); gap:10px; }
+  .grid6 { display:grid; grid-template-columns: repeat(6,1fr); gap:8px; }
+
+  /* ── SECTION TITLE ── */
+  .sec-title {
+    display:flex; align-items:center; gap:10px;
+    border-bottom: 1px solid var(--borderB);
+    padding-bottom:10px; margin-bottom:12px;
+  }
+  .sec-title .ico { display:flex; align-items:center; justify-content:center; }
+  .sec-title h2 { font-size:14px; font-weight:700; letter-spacing:1px; color:var(--text); font-family: 'Roboto Condensed', sans-serif; text-transform: uppercase; }
+  
+  #panel-prop .sec-title h2, #panel-prop .sec-title .ico { color: var(--blue); }
+  #panel-ene .sec-title h2, #panel-ene .sec-title .ico { color: var(--red); }
+  .top-env .sec-title h2, .top-env .sec-title .ico { color: var(--gold); }
+
+  .sec-title p  { font-size:11px; color:var(--muted); margin-top:2px; letter-spacing: 0.5px;}
+  .cp-badge { margin-left:auto; text-align:right; }
+  .cp-badge span { font-size:10px; color:var(--muted); display:block; text-transform: uppercase; font-weight: 700;}
+  .cp-badge strong { font-size:20px; font-weight:700; color:var(--text); }
+  #cp-prop-base { color: var(--blue); }
+  #cp-ene-base { color: var(--red); }
+
+  /* ── INTERFAZ DE UNIDADES VERTICAL ── */
+  .unit-scroll { min-height: 50px; max-height:480px; overflow-y:auto; padding-right:3px; margin-bottom: 10px; -webkit-overflow-scrolling: touch;}
+  
+  .unit-row {
+    display:flex; align-items:center; gap:12px;
+    padding:8px 12px; margin-bottom:6px; border-radius:4px;
+    background: transparent;
+    border: 1px solid var(--borderB);
+    cursor: pointer; opacity: 0.55;
+    transition: all 0.2s;
+  }
+  .unit-row:hover { opacity: 0.8; background: rgba(255,255,255,0.02); }
+  .unit-row.active { opacity: 1; background: var(--panel-sub); }
+  
+  #list-prop .unit-row.active { border-left: 3px solid var(--blue); border-color: var(--blue); }
+  #list-ene .unit-row.active { border-left: 3px solid var(--red); border-color: var(--red); }
+
+  .unit-ico { display:flex; align-items:center; justify-content:center; min-width:24px; color: var(--muted); pointer-events: none; }
+  #list-prop .unit-row.active .unit-ico { color: var(--blue); }
+  #list-ene .unit-row.active .unit-ico { color: var(--red); }
+
+  .unit-info { flex:1; min-width:0; pointer-events: none;}
+  .unit-name { color:var(--muted); font-size:13px; font-weight:700; line-height:1.3; text-transform: uppercase; }
+  .unit-row.active .unit-name { color:var(--text); }
+  .unit-desc { color:var(--muted); font-size:11px; margin-top:2px; letter-spacing: 0.5px;}
+  .unit-row.active .unit-desc strong { color:var(--text) !important; }
+  
+  .unit-ctrl { display:flex; align-items:center; gap:4px; background: var(--bg); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--borderB);}
+  .cnt { color:var(--muted); font-weight:700; width:24px; text-align:center; font-size:15px; pointer-events: none;}
+  .unit-row.active .cnt { color:var(--text); }
+  
+  .btn-sm {
+    background: transparent; border:none; color:var(--muted);
+    border-radius:3px; cursor:pointer;
+    min-width:44px; min-height:44px;
+    font-size:20px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    font-family: 'Roboto Condensed', sans-serif;
+    -webkit-appearance: none;
+    touch-action: manipulation;
+    -webkit-user-select: none; user-select: none;
+  }
+  .unit-row.active .btn-sm { color:var(--text); }
+  .btn-sm:active { background: var(--border); }
+
+  /* Badge de texto en lugar de SVG */
+  .unit-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+    border: 1px solid currentColor; border-radius: 2px;
+    padding: 2px 4px; min-width: 30px; text-align: center;
+    color: var(--muted);
+  }
+  .unit-row.active .unit-badge { color: inherit; }
+  #list-prop .unit-row.active .unit-badge { color: var(--blue); border-color: var(--blue); }
+  #list-ene  .unit-row.active .unit-badge { color: var(--red);  border-color: var(--red);  }
+
+  /* iOS tap */
+  .unit-row { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+  /* ── SELECTS & FORMS ── */
+  .field { margin-bottom:10px; }
+  .field label { display:block; font-size:11px; font-weight:700; color:var(--text); text-transform:uppercase; margin-bottom:4px; letter-spacing: 0.5px;}
+  #panel-prop ~ .sub-win label { color: var(--blue); }
+  #panel-ene ~ .sub-win label { color: var(--red); }
+  .top-env label { color: var(--gold); }
+
+  select, input {
+    width:100%; background: var(--panel); color:var(--text);
+    border: 1px solid var(--border); border-radius:3px;
+    padding:7px 8px; font-size:12px; outline:none;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  select:focus { border-color: var(--blue); }
+
+  /* ── GAUGE ── */
+  #gauge-wrap { margin:10px 0; }
+  #gauge-labels { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-bottom:5px; text-transform: uppercase; font-weight: 700;}
+  #gauge-bar { height: 16px; background: var(--redD); border-radius: 2px; overflow:hidden; position:relative; }
+  #gauge-fill { height:100%; background: var(--blue); transition:width .5s ease; }
+  #gauge-txt {
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-size:11px; color:#fff; font-weight:700; text-shadow: 0 1px 2px rgba(0,0,0,0.8); letter-spacing: 1px;
+  }
+
+  /* ── CALC BUTTON ── */
+  #btn-calc {
+    display:block; margin:14px auto; width:100%; max-width: 400px;
+    background: var(--panel-sub); border: 1px solid var(--border); color: var(--text);
+    padding:14px 20px; border-radius:4px;
+    font-size:14px; font-weight:700; letter-spacing:2px;
+    cursor:pointer; text-transform:uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    transition: all 0.2s;
+  }
+  #btn-calc:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+  /* ── RESULT ── */
+  #result-section { opacity:0; transform:translateY(10px); transition:all .4s ease; display:none; }
+  #result-section.show { display:block; opacity:1; transform:translateY(0); }
+
+  .ratio-block { display:flex; align-items:center; justify-content:center; gap:32px; margin-bottom:10px; padding: 10px; background: var(--panel-sub); border-radius: 4px; }
+  .ratio-side { text-align:center; }
+  .ratio-label { font-size:11px; color:var(--muted); margin-bottom:4px; text-transform: uppercase; font-weight: 700;}
+  .ratio-val { font-size:34px; font-weight:700; }
+  #r-cp-prop { color: var(--blue); }
+  #r-cp-ene { color: var(--red); }
+  
+  .ratio-center { text-align:center; }
+  .ratio-main { font-size:30px; font-weight:700; color:var(--text); }
+  .ratio-main-label { font-size:11px; color:var(--muted); text-transform: uppercase; font-weight: 700;}
+  
+  .verdict {
+    display:inline-block; margin-top:8px; padding:6px 24px;
+    border-radius:3px; font-size:14px; font-weight:700; letter-spacing:2px; text-transform: uppercase;
+  }
+  .verdict.exito { background: var(--greenD); border: 1px solid var(--green); color: var(--green); }
+  .verdict.alerta { background: rgba(245, 158, 11, 0.2); border: 1px solid var(--warn); color: var(--warn); }
+  .verdict.fracaso { background: var(--redD); border: 1px solid var(--red); color: var(--red); }
+
+  .stat-box { background: var(--panel-sub); border: 1px solid var(--borderB); border-radius:4px; padding:12px 6px; text-align:center; }
+  .stat-ico { display:flex; align-items:center; justify-content:center; margin-bottom:6px; color: var(--muted); }
+  .stat-val { font-size:16px; font-weight:700; color:var(--text); }
+  .stat-val.g { color:var(--green); }
+  .stat-val.r { color:var(--red); }
+  .stat-lbl { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; line-height:1.3; margin-top:4px; font-weight: 700;}
+
+  .threshold-box { background: var(--panel-sub); border: 1px solid var(--borderB); border-radius:4px; padding:10px 14px; }
+  .thr-label { font-size:10px; color:var(--muted); margin-bottom:4px; text-transform: uppercase; font-weight: 700;}
+  .thr-val { font-size:16px; color:var(--text); font-weight:700; }
+  .thr-sub  { font-size:10px; color:var(--muted); margin-top:3px; }
+
+  /* ── TABLA HISTOR ── */
+  .hist-table { width:100%; border-collapse:collapse; font-size:12px; margin-top: 5px; }
+  .hist-table th { padding:8px 10px; color:var(--text); text-align:left; font-weight:700; text-transform: uppercase; background: var(--panel-sub); border-bottom: 2px solid var(--border); }
+  .hist-table td { padding:6px 10px; border-bottom: 1px solid var(--borderB); }
+  .hist-table tr.active-row td { background: var(--blueD); color: var(--text); font-weight:700; border-left: 3px solid var(--blue); }
+
+  /* ── TERMINAL BRIEFING ── */
+  #briefing-section { margin-top:0; }
+  #static-briefing {
+    background: var(--panel-sub); border: 1px solid var(--borderB); border-left: 4px solid var(--gold);
+    padding: 20px; font-size: 13px; line-height: 1.7; color: var(--text);
+    font-family: 'Roboto Condensed', sans-serif; border-radius: 4px;
+  }
+  .brief-title { color: var(--gold); font-weight: 700; border-bottom: 1px dashed var(--borderB); margin-bottom: 15px; padding-bottom: 10px; font-size: 15px; letter-spacing: 1px; text-transform: uppercase;}
+  .brief-alert { color: var(--red); font-weight: 700; }
+  .brief-warn { color: var(--warn); font-weight: 700; }
+  .brief-ok { color: var(--green); font-weight: 700; }
+
+  .sec-label { font-size:11px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; border-bottom: 1px solid var(--borderB); padding-bottom: 4px; font-weight: 700;}
+  .grid2-thr { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+
+  /* Alertas Tácticas */
+  #tacticas-alertas-container { background: var(--panel-sub); border: 1px solid var(--gold); border-left: 4px solid var(--gold); }
+
+  @media(max-width:800px){
+    .grid2, .grid4, .grid6 { grid-template-columns:1fr; }
+  }
+
+  /* ── ESTILO DE IMPRESIÓN OFICIAL ── */
+  @media print {
+    body { background: #fff; color: #000; padding: 0; margin: 0; overflow: visible; font-family: 'Roboto Condensed', sans-serif;}
+    #header { background: #fff; border-bottom: 2px solid #000; box-shadow: none; color: #000; padding: 10px 0; }
+    .theme-toggle, #btn-calc, .unit-ctrl, button { display: none !important; }
+    .panel { border: 1px solid #ccc; background: #fff; box-shadow: none; break-inside: avoid; }
+    .sec-title h2, label, .sec-title .ico, .logo { color: #000 !important; }
+    .unit-row { border: 1px solid #eee; background: transparent; break-inside: avoid; }
+    .unit-name, .unit-desc, .cnt { color: #000 !important; }
+    .stat-box { border: 1px solid #000; background: #fff; border-top: 4px solid #000; }
+    .stat-val, .stat-lbl { color: #000 !important; }
+    select { border: none; background: #fff; color: #000; appearance: none; padding: 0; font-weight: bold; }
+    #static-briefing { background: #fff; border: 1px solid #000; color: #000; }
+    .brief-title { color: #000; border-bottom: 1px solid #000; }
+    .brief-alert, .brief-warn, .brief-ok { color: #000 !important; font-weight: bold; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Banner instalación iOS -->
+<div id="pwa-banner">
+  <div id="pwa-banner-ico">📲</div>
+  <div id="pwa-banner-txt">
+    <strong>Instalar KINETICA-SET</strong>
+    Pulsa <strong style="color:#fbbf24">⎋ Compartir</strong> → <em>"Añadir a pantalla de inicio"</em> para usar offline como app.
+  </div>
+  <button id="pwa-banner-close">✕</button>
+</div>
+
+<div id="header">
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+        <polygon points="12,2 22,8 22,16 12,22 2,16 2,8"/>
+        <circle cx="12" cy="12" r="3"/>
+        <line x1="12" y1="5" x2="12" y2="9"/><line x1="6" y1="12" x2="9" y2="12"/>
+        <line x1="18" y1="12" x2="15" y2="12"/><line x1="12" y1="19" x2="12" y2="15"/>
+      </svg>
+      KINETICA-SET
+    </div>
+    <div class="title-group">
+      <h1>Simulador de Enfrentamiento Táctico</h1>
+      <p>v1.0</p>
+    </div>
+  </div>
+  <button id="theme-toggle" class="theme-toggle">☀️ MODO PROYECTOR</button>
+</div>
+
+<div id="wrap">
+
+  <div class="panel top-env">
+    <div class="sec-title">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><circle cx="12" cy="12" r="4"/>
+        </svg>
+      </span>
+      <div>
+        <h2>ESPACIO DE BATALLA</h2>
+      </div>
+    </div>
+    <div class="grid4">
+      <div class="field"><label>Terreno</label>
+        <select id="terreno">
+          <option value="playa">Zona de playa / litoral</option>
+          <option value="facil" selected>Terreno fácil — llano / estepa</option>
+          <option value="med">Terreno medio — colinas / bosque</option>
+          <option value="dificil">Terreno difícil — montaña / urbano</option>
+        </select>
+      </div>
+      <div class="field"><label>Meteorología</label>
+        <select id="clima">
+          <option value="despejado" selected>☀️ Despejado</option>
+          <option value="lluvia">🌧️ Lluvia (Afecta terreno liso)</option>
+          <option value="nieve">❄️ Nieve (Ciega sensores/Barro)</option>
+        </select>
+      </div>
+      <div class="field"><label>Visibilidad</label>
+        <select id="visibilidad">
+          <option value="dia" selected>Diurno — Visibilidad plena</option>
+          <option value="noche_nvg">Nocturno — NVG Estándar</option>
+          <option value="noche_ciega">Nocturno — Ceguera visual</option>
+          <option value="niebla">Niebla/Humo — Vis &lt;500m</option>
+        </select>
+      </div>
+      <div class="field"><label>Obstáculo</label>
+        <select id="obstaculo">
+          <option value="1.00" selected>Sin obstáculo (×1.00)</option>
+          <option value="0.85">Desembarco litoral (×0.85)</option>
+          <option value="0.90">Cruce río vadeable (×0.90)</option>
+          <option value="0.80">Cruce río no vadeable (×0.80)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <div class="panel" id="panel-prop">
+        <div class="sec-title">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </span>
+          <div>
+            <h2>FUERZAS PROPIAS — BLUEFOR</h2>
+            <p>Tercio de Armada</p>
+          </div>
+          <div class="cp-badge"><span>CP BASE</span><strong id="cp-prop-base" style="color:var(--blue)">0.00</strong></div>
+        </div>
+
+        <div class="unit-scroll" id="list-prop"></div>
+      </div>
+
+      <div class="panel sub-win">
+        <div class="sec-title"><h2>CONFIGURACIÓN TÁCTICA</h2></div>
+        <div class="field"><label>Postura propia</label>
+          <select id="pos-prop">
+            <option value="1.60">Defensa fortalecida OMED (×1.60)</option>
+            <option value="1.30">Defensa organizada OLIG (×1.30)</option>
+            <option value="1.10">Defensa posiciones CMD (×1.10)</option>
+            <option value="1.00">Defensa improvisada (×1.00)</option>
+            <option value="1.30" selected>Ataque deliberado (×1.30)</option>
+            <option value="1.20">Asalto anfibio desde el mar (×1.20)</option>
+            <option value="1.10">Explotación del éxito (×1.10)</option>
+            <option value="1.10">Contraataque (×1.10)</option>
+            <option value="0.90">Retardo (×0.90)</option>
+          </select>
+        </div>
+        <div class="grid2" style="margin-bottom:0">
+          <div class="field"><label>Experiencia</label>
+            <select id="exp-prop">
+              <option value="2.0">Combate (×2.0)</option>
+              <option value="1.0" selected>Adiestrado (×1.0)</option>
+              <option value="0.5">Novato (×0.5)</option>
+            </select>
+          </div>
+          <div class="field"><label>Moral</label>
+            <select id="moral-prop">
+              <option value="2.0" selected>Alta (×2.0)</option>
+              <option value="1.0">Normal (×1.0)</option>
+              <option value="0.4">Baja (×0.4)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel sub-win">
+        <div class="sec-title"><h2>APOYOS ARMADA ESPAÑOLA</h2></div>
+        <div class="field"><label>Apoyo de fuegos naval</label>
+          <select id="naval">
+            <option value="1.00" selected>Sin apoyo naval (×1.00)</option>
+            <option value="1.15">Fragata F-100 (×1.15)</option>
+            <option value="1.25">Grupo de Acción Naval (×1.25)</option>
+            <option value="1.35">Misiles TLAM (×1.35)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel enemy" id="panel-ene">
+        <div class="sec-title">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M12 2l10 10-10 10L2 12z"/><circle cx="12" cy="12" r="3" fill="currentColor"/>
+            </svg>
+          </span>
+          <div>
+            <h2>ADVERSARIO — OPFOR</h2>
+            <p>Fuerzas Enemigas Equivalentes</p>
+          </div>
+          <div class="cp-badge"><span>CP BASE</span><strong id="cp-ene-base" style="color:var(--red)">0.00</strong></div>
+        </div>
+
+        <div class="unit-scroll" id="list-ene"></div>
+      </div>
+
+      <div class="panel sub-win enemy">
+        <div class="sec-title"><h2>CONFIGURACIÓN TÁCTICA</h2></div>
+        <div class="field"><label>Postura adversario</label>
+          <select id="pos-ene">
+            <option value="1.60">Defensa fortalecida OMED (×1.60)</option>
+            <option value="1.30" selected>Defensa organizada OLIG (×1.30)</option>
+            <option value="1.10">Defensa posiciones CMD (×1.10)</option>
+            <option value="1.00">Defensa improvisada (×1.00)</option>
+            <option value="1.30">Ataque deliberado (×1.30)</option>
+            <option value="1.20">Asalto anfibio</option>
+            <option value="1.10">Explotación del éxito (×1.10)</option>
+            <option value="1.10">Contraataque (×1.10)</option>
+            <option value="0.90">Retardo (×0.90)</option>
+          </select>
+        </div>
+        <div class="grid2" style="margin-bottom:0">
+          <div class="field"><label>Experiencia</label>
+            <select id="exp-ene">
+              <option value="1.0" selected>Adiestrado (×1.0)</option>
+              <option value="0.5">Novato (×0.5)</option>
+            </select>
+          </div>
+          <div class="field"><label>Moral</label>
+            <select id="moral-ene">
+              <option value="1.0" selected>Normal (×1.0)</option>
+              <option value="0.4">Baja (×0.4)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel sub-win enemy">
+        <div class="sec-title"><h2>DOMINIO DEL ESPACIO AÉREO</h2></div>
+        <div class="field"><label>Superioridad aérea enemiga</label>
+          <select id="air-ene">
+            <option value="1.00" selected>Neutral (×1.00)</option>
+            <option value="1.10">Parcial OPFOR (×1.10)</option>
+            <option value="1.25">Total OPFOR (×1.25)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="background: transparent; border: none; padding: 0;">
+    <div id="gauge-wrap">
+      <div id="gauge-labels"><span>BLUEFOR</span><span>OPFOR</span></div>
+      <div id="gauge-bar">
+        <div id="gauge-fill" style="width:50%"></div>
+        <div id="gauge-txt">0.00 vs 0.00</div>
+      </div>
+    </div>
+    <button id="btn-calc">EJECUTAR ANÁLISIS KINÉTICO (OR5-014)</button>
+  </div>
+
+  <div id="result-section">
+    <div class="panel result" id="panel-result">
+      <div class="sec-label">RESULTADO DEL CÁLCULO DOCTRINAL (OR5-014)</div>
+      
+      <div class="ratio-block">
+        <div class="ratio-side">
+          <div class="ratio-label">CP BLUE CORREGIDA</div>
+          <div class="ratio-val" id="r-cp-prop" style="color:var(--blue)">0.00</div>
+        </div>
+        <div class="ratio-center">
+          <div class="ratio-main" id="r-prop">0.00 : 1</div>
+          <div class="ratio-main-label">PROPORCIÓN P/E</div>
+          <div id="r-verdict" class="verdict exito">✅ ÉXITO PROBABLE</div>
+        </div>
+        <div class="ratio-side">
+          <div class="ratio-label">CP RED CORREGIDA</div>
+          <div class="ratio-val" id="r-cp-ene" style="color:var(--red)">0.00</div>
+        </div>
+      </div>
+
+      <div id="r-valoracion" style="text-align:center; font-size:13px; color:var(--muted); margin-top:-10px; margin-bottom:20px; letter-spacing: 0.5px;"></div>
+
+      <div id="tacticas-alertas-container" style="margin-bottom:14px; display:none; padding:10px; border-radius:4px;">
+        <div class="sec-label" style="margin-bottom:6px; border:none; color:var(--text);">⚡ ALERTAS DEL MOTOR TÁCTICO</div>
+        <div id="tacticas-alertas-list" style="font-size:12px; line-height:1.6; color:var(--text);"></div>
+      </div>
+      
+      <div class="grid6" style="margin-bottom:14px" id="stats-grid">
+        <div class="stat-box">
+          <div class="stat-ico"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/></svg></div>
+          <div class="stat-val" id="st-dur">—</div><div class="stat-lbl">Duración combate</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-ico"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="stat-val g" id="st-ba">—</div><div class="stat-lbl">Bajas propias</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-ico"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><path d="M9 9l6 6M15 9l-6 6"/></svg></div>
+          <div class="stat-val r" id="st-bd">—</div><div class="stat-lbl">Bajas adversario</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-ico"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></div>
+          <div class="stat-val" id="st-tr">—</div><div class="stat-lbl">T. Reorganización</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-ico"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <div class="stat-val" id="st-vel">—</div><div class="stat-lbl">Vel. progresión</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-ico"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="stat-val" id="st-fh">— / —</div><div class="stat-lbl">Factor humano P/E</div>
+        </div>
+      </div>
+
+      <div class="grid2-thr">
+        <div class="threshold-box">
+          <div class="thr-label">⚠ UMBRAL MÍNIMO PROPIAS (70% CP atacante)</div>
+          <div class="thr-val" id="thr-prop">—</div>
+          <div class="thr-sub">Por debajo → retirar y reorganizar</div>
+        </div>
+        <div class="threshold-box">
+          <div class="thr-label">⚠ UMBRAL MÍNIMO DEFENSOR (50% CP)</div>
+          <div class="thr-val" id="thr-ene">—</div>
+          <div class="thr-sub">Por debajo → defensor incapaz de combatir</div>
+        </div>
+      </div>
+
+      <div id="briefing-section" style="display:none; margin-top:20px; margin-bottom:20px;">
+        <div id="static-briefing"></div>
+        <button onclick="window.print()" style="margin-top:15px; width:100%; background:var(--panel-sub); border:1px solid var(--borderB); color:var(--text); padding:15px; cursor:pointer; font-weight:700; font-family: 'Roboto Condensed', sans-serif; transition: background 0.2s; letter-spacing: 2px;">
+          <span style="margin-right:8px;">🖨️</span> EXPORTAR / IMPRIMIR ANÁLISIS
+        </button>
+      </div>
+
+      <div style="margin-bottom:10px;">
+        <div class="sec-label" style="margin-bottom:6px">Proporciones históricas de referencia</div>
+        <table class="hist-table" id="hist-table">
+          <thead><tr>
+            <th>Misión</th><th>Proporción mínima</th><th>Organización terreno</th>
+          </tr></thead>
+          <tbody id="hist-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Toggle Theme Logic
+var themeBtn = document.getElementById('theme-toggle');
+themeBtn.onclick = function() {
+  document.body.classList.toggle('light-mode');
+  if(document.body.classList.contains('light-mode')) {
+    themeBtn.textContent = '🌙 MODO TÁCTICO';
+  } else {
+    themeBtn.textContent = '☀️ MODO PROYECTOR';
+  }
+};
+
+// ═══════════════════════════════════════════════════════
+//  CATÁLOGO DE UNIDADES (ES5 Compatible - Sin find/arrow funcs en render)
+// ═══════════════════════════════════════════════════════
+var PROP = [
+  {id:"cia_f_lig", cat:"combate", n:"Cía Fusiles Ligera a pie",    ico:"INF",  cp:1.00, mov:"NADA",    bli:"NULA",   cap:[]},
+  {id:"cia_f_heli",cat:"combate", n:"Cía Fusiles Helitrans.",       ico:"HLI",  cp:1.15, mov:"HELI",    bli:"NULA",   cap:[]},
+  {id:"cia_f_mot", cat:"combate", n:"Cía Fusiles Motorizada",       ico:"MOT",  cp:1.20, mov:"4x4",     bli:"NULA",   cap:[]},
+  {id:"cia_f_pro", cat:"combate", n:"Cía Fusiles Protegida",        ico:"PRO",  cp:1.35, mov:"4x4",     bli:"LIGERA", cap:["SENSORES"]},
+  {id:"cia_f_mec", cat:"combate", n:"Cía Mecanizada Piranha",       ico:"MEC",  cp:1.50, mov:"8x8",     bli:"MEDIA",  cap:["SENSORES"]},
+  {id:"cia_f_aav", cat:"combate", n:"Cía Mecanizada Anfibia",       ico:"AAV",  cp:1.70, mov:"CADENAS", bli:"MEDIA",  cap:["ANFIBIA"]},
+  {id:"bty_art",   cat:"apoyo",   n:"Batería Artillería",           ico:"ART",  cp:1.20, mov:"CADENAS", bli:"LIGERA", cap:[]},
+  {id:"sc_spike",  cat:"apoyo",   n:"Sección CC Spike LR",          ico:"CC",   cp:0.80, mov:"4x4",     bli:"LIGERA", cap:["CC","SENSORES"]},
+  {id:"sc_mis",    cat:"apoyo",   n:"Sección Defensa AA",           ico:"AA",   cp:0.40, mov:"4x4",     bli:"LIGERA", cap:["AA","SENSORES"]},
+  {id:"est_reco",  cat:"apoyo",   n:"Sección Reconocimiento",       ico:"RCO",  cp:0.30, mov:"NADA",    bli:"NULA",   cap:["SENSORES"]},
+  {id:"zap_lig",   cat:"apoyo",   n:"Sección Zapadores Lig.",       ico:"ZAP",  cp:0.40, mov:"NADA",    bli:"NULA",   cap:[]},
+  {id:"zap_mot",   cat:"apoyo",   n:"Sección Zapadores Mot.",       ico:"ZMT",  cp:0.50, mov:"4x4",     bli:"LIGERA", cap:[]},
+  {id:"zap_mec",   cat:"apoyo",   n:"Sección Zapadores Mec.",       ico:"ZMC",  cp:0.65, mov:"8x8",     bli:"MEDIA",  cap:[]}
+];
+
+var ENE = [
+  {id:"e_cia_lig", cat:"combate", n:"Cía Fusiles Ligera OPFOR",     ico:"INF",  cp:1.00, mov:"NADA",    bli:"NULA",   cap:[]},
+  {id:"e_cia_mot", cat:"combate", n:"Cía Motorizada OPFOR",         ico:"MOT",  cp:1.20, mov:"4x4",     bli:"NULA",   cap:[]},
+  {id:"e_cia_mz",  cat:"combate", n:"Cía Mecanizada OPFOR",         ico:"MEC",  cp:1.60, mov:"8x8",     bli:"MEDIA",  cap:["SENSORES"]},
+  {id:"e_sec_cc",  cat:"combate", n:"Sección Carros OPFOR",         ico:"TK",   cp:1.20, mov:"CADENAS", bli:"PESADA", cap:["SENSORES"]},
+  {id:"e_bty_art", cat:"apoyo",   n:"Batería Artillería / MLRS",    ico:"ART",  cp:1.40, mov:"CADENAS", bli:"LIGERA", cap:[]},
+  {id:"e_sc_mor",  cat:"apoyo",   n:"Sección Morteros 82mm",        ico:"MOR",  cp:0.60, mov:"4x4",     bli:"NULA",   cap:["IDF"]},
+  {id:"e_sc_atgm", cat:"apoyo",   n:"Sección ATGM Kornet",          ico:"ATG",  cp:0.90, mov:"4x4",     bli:"NULA",   cap:["CC","SENSORES"]},
+  {id:"e_sc_aa",   cat:"apoyo",   n:"Sección Defensa AA",           ico:"AA",   cp:0.40, mov:"CADENAS", bli:"MEDIA",  cap:["AA","SENSORES"]},
+  {id:"e_zap",     cat:"apoyo",   n:"Sección Ingenieros Obst.",     ico:"ZAP",  cp:0.70, mov:"4x4",     bli:"NULA",   cap:[]}
+];
+
+var HIST = [
+  {m:"Ataque (CMD)",       p:"2.5 : 1",       o:"Condiciones mínimas defensa", u:2.5},
+  {m:"Ataque (OLIG)",      p:"3 : 1",         o:"Organización ligera",         u:3.0},
+  {m:"Ataque (OMED)",      p:"4.5 : 1",       o:"Organización media/fuerte",   u:4.5},
+  {m:"Defensa",            p:"1 : 2.5–4.5",   o:"Frente a posible ataque",     u:null},
+  {m:"Contraataque",       p:"1 : 1",         o:"Sin organización",            u:1.0},
+  {m:"Retardo",            p:"1 : 6",         o:"Sin organización",            u:null},
+  {m:"Explotación",        p:"1 : 1",         o:"Sin organización",            u:1.0},
+];
+
+var state = { prop:{}, ene:{} };
+
+function changeQty(side, id, delta) {
+  var current = state[side][id] || 0;
+  state[side][id] = Math.max(0, current + delta);
+  renderAll();
+}
+
+function renderSide(side, containerId) {
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  var unitsList = (side === 'prop') ? PROP : ENE;
+
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+
+  for (var i = 0; i < unitsList.length; i++) {
+    (function(u) {
+      var n = state[side][u.id] || 0;
+      var isActive = (n > 0);
+
+      var row = document.createElement("div");
+      row.className = "unit-row" + (isActive ? " active" : "");
+
+      // Badge de texto en lugar de SVG — 100% compatible iOS
+      var icoDiv = document.createElement("div");
+      icoDiv.className = "unit-ico";
+      var badge = document.createElement("span");
+      badge.className = "unit-badge";
+      badge.textContent = u.ico;
+      icoDiv.appendChild(badge);
+      row.appendChild(icoDiv);
+
+      var infoDiv = document.createElement("div");
+      infoDiv.className = "unit-info";
+      var nameDiv = document.createElement("div");
+      nameDiv.className = "unit-name";
+      nameDiv.textContent = u.n;
+      var descDiv = document.createElement("div");
+      descDiv.className = "unit-desc";
+      var capStr = (u.cap && u.cap.length > 0) ? " · " + u.cap.join(', ') : "";
+      descDiv.textContent = "PCR: " + u.cp.toFixed(2) + " · " + u.mov + " · " + u.bli + capStr;
+      infoDiv.appendChild(nameDiv);
+      infoDiv.appendChild(descDiv);
+      row.appendChild(infoDiv);
+
+      var ctrlDiv = document.createElement("div");
+      ctrlDiv.className = "unit-ctrl";
+
+      var btnMinus = document.createElement("button");
+      btnMinus.className = "btn-sm";
+      btnMinus.textContent = "\u2212";
+      btnMinus.type = "button";
+
+      var cntSpan = document.createElement("span");
+      cntSpan.className = "cnt";
+      cntSpan.textContent = String(n);
+
+      var btnPlus = document.createElement("button");
+      btnPlus.className = "btn-sm";
+      btnPlus.textContent = "+";
+      btnPlus.type = "button";
+
+      // Handler unificado — funciona en iOS y desktop
+      function onMinus(e) {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        changeQty(side, u.id, -1);
+      }
+      function onPlus(e) {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        changeQty(side, u.id, 1);
+      }
+      function onRow(e) {
+        var t = e.target;
+        // Solo actuar si el toque fue en la fila/info, no en los botones
+        while (t && t !== row) {
+          if (t === ctrlDiv || t === btnMinus || t === btnPlus) return;
+          t = t.parentNode;
+        }
+        if (e.cancelable) e.preventDefault();
+        changeQty(side, u.id, 1);
+      }
+
+      btnMinus.addEventListener('touchend', onMinus, false);
+      btnMinus.addEventListener('click',    onMinus, false);
+      btnPlus.addEventListener('touchend',  onPlus,  false);
+      btnPlus.addEventListener('click',     onPlus,  false);
+      row.addEventListener('touchend', onRow, false);
+      row.addEventListener('click',    onRow, false);
+
+      ctrlDiv.appendChild(btnMinus);
+      ctrlDiv.appendChild(cntSpan);
+      ctrlDiv.appendChild(btnPlus);
+      row.appendChild(ctrlDiv);
+      container.appendChild(row);
+
+    })(unitsList[i]);
+  }
+}
+
+function renderAll() {
+  renderSide('prop', 'list-prop');
+  renderSide('ene', 'list-ene');
+  updateGauge();
+}
+
+function calcBase(side, returnLogs){
+  var units = (side === "prop") ? PROP : ENE;
+  var enemySide = (side === "prop") ? "ene" : "prop";
+  var enemyUnits = (side === "prop") ? ENE : PROP;
+  
+  var tId = document.getElementById("terreno").value;
+  var cId = document.getElementById("clima").value;
+  var vId = document.getElementById("visibilidad").value;
+
+  var eHeavy = false;
+  var eHeli = false;
+  var eAA = false;
+  var eInf = false;
+
+  for (var i = 0; i < enemyUnits.length; i++) {
+    var eu = enemyUnits[i];
+    if ((state[enemySide][eu.id] || 0) > 0) {
+      if (eu.bli === 'MEDIA' || eu.bli === 'PESADA') eHeavy = true;
+      if (eu.mov === 'HELI') eHeli = true;
+      if (eu.cap && eu.cap.indexOf('AA') !== -1) eAA = true;
+      if (eu.mov === 'NADA' && eu.bli === 'NULA') eInf = true;
+    }
+  }
+
+  var totalCP = 0;
+  var logs = [];
+
+  for (var j = 0; j < units.length; j++) {
+    var u = units[j];
+    var qty = state[side][u.id] || 0;
+    if (qty === 0) continue;
+    
+    var uCP = u.cp * qty;
+    var mT = 0;
+    var mV = 0;
+
+    if (tId === 'playa') {
+      if (u.cap.indexOf('ANFIBIA') !== -1) mT = 0.10;
+      else if (u.mov === 'CADENAS' || u.mov === 'HELI') mT = 0;
+      else if (u.mov === '8x8') mT = -0.15;
+      else if (u.mov === 'NADA') mT = -0.20;
+      else if (u.mov === '4x4') mT = -0.25;
+    } else if (tId === 'med') {
+      if (u.mov === 'NADA') mT = 0;
+      else if (u.mov === '4x4' || u.mov === 'HELI') mT = -0.15;
+      else if (u.mov === '8x8') mT = -0.25;
+      else if (u.mov === 'CADENAS') mT = -0.35;
+    } else if (tId === 'dificil') {
+      if (u.mov === 'NADA') mT = 0.20;
+      else if (u.mov === 'HELI') mT = -0.20;
+      else if (u.mov === '4x4') mT = -0.30;
+      else if (u.mov === '8x8' || u.mov === 'CADENAS') mT = -0.45;
+    }
+
+    var hS = u.cap.indexOf('SENSORES') !== -1;
+    var sF = (cId === 'nieve' && hS) ? 0.5 : (hS ? 1 : 0);
+    
+    if (vId === 'noche_nvg') { mV = hS ? 0 : -0.10; }
+    else if (vId === 'noche_ciega') { mV = -0.40 + (0.35 * sF); }
+    else if (vId === 'niebla') { mV = -0.30 + (0.20 * sF); }
+
+    uCP *= Math.max(0.1, 1 + mT + mV);
+
+    if (u.cap.indexOf('CC') !== -1 && eHeavy) {
+      var m = (tId === 'dificil') ? 1.4 : 2.0;
+      uCP *= m;
+      if (returnLogs && side === "prop") logs.push("✓ CC Propio (" + u.n + ") activo vs blindaje OPFOR (x" + m + ").");
+      if (returnLogs && side === "ene") logs.push("⚠ OPFOR aplica misiles CC vs blindaje Propio (x" + m + ").");
+    }
+    if (u.cap.indexOf('AA') !== -1 && eHeli) {
+      uCP *= 2.5;
+      if (returnLogs && side === "prop") logs.push("✓ Defensa AA Propia (" + u.n + ") interceptando Helos OPFOR (x2.5).");
+      if (returnLogs && side === "ene") logs.push("⚠ Red AA enemiga atacando nuestros Helos (x2.5).");
+    }
+    if (u.mov === 'HELI' && eAA) {
+      uCP *= 0.1;
+      if (returnLogs && side === "prop") logs.push("⚠ Nuestro asalto HELI degradado por fuego AA (x0.1).");
+      if (returnLogs && side === "ene") logs.push("✓ Helos OPFOR neutralizados por nuestra red AA (x0.1).");
+    }
+    if (u.cap.indexOf('IDF') !== -1 && eInf) {
+      uCP *= 1.20;
+      if (returnLogs && side === "prop") logs.push("✓ Fuego indirecto propio batiendo infantería expuesta (x1.20).");
+      if (returnLogs && side === "ene") logs.push("⚠ Morteros OPFOR batiendo nuestra infantería (x1.20).");
+    }
+    
+    totalCP += uCP;
+  }
+
+  if (returnLogs && side === "prop" && cId === 'lluvia' && tId === 'facil') logs.push("ℹ️ Lluvia en llanura: Terreno convertido en barrizal.");
+  if (returnLogs && side === "prop" && cId === 'nieve') logs.push("❄️ Nieve extrema: Sensores térmicos mermados al 50%.");
+
+  return returnLogs ? { cp: totalCP, logs: logs } : totalCP;
+}
+
+function updateGauge(){
+  var p = calcBase("prop");
+  var e = calcBase("ene");
+  var total = (p + e) || 1;
+  var pct = (p / total) * 100;
+  document.getElementById("gauge-fill").style.width = pct + "%";
+  document.getElementById("gauge-txt").textContent = p.toFixed(2) + " vs " + e.toFixed(2);
+  document.getElementById("cp-prop-base").textContent = p.toFixed(2);
+  document.getElementById("cp-ene-base").textContent = e.toFixed(2);
+}
+
+var selects = ["terreno","clima","visibilidad","obstaculo","pos-prop","pos-ene","exp-prop","moral-prop","exp-ene","moral-ene","naval","air-ene"];
+for (var s = 0; s < selects.length; s++) {
+  var el = document.getElementById(selects[s]);
+  if (el) {
+    el.addEventListener("change", updateGauge);
+  }
+}
+
+function classifyRatio(ratio, fPE) {
+  var requiredU = 2.5; 
+  if (fPE >= 1.60) requiredU = 4.5; 
+  else if (fPE >= 1.30) requiredU = 3.0; 
+
+  if (ratio < requiredU * 0.6) {
+     return { nivel: "NO RECOMENDADO", colorClass: "brief-alert", verdictClass: "fracaso", icon: "❌" };
+  } else if (ratio < requiredU) {
+     return { nivel: "RIESGO ALTO", colorClass: "brief-warn", verdictClass: "alerta", icon: "⚠️" };
+  } else if (ratio < requiredU * 1.5) {
+     return { nivel: "ÉXITO PROBABLE", colorClass: "brief-ok", verdictClass: "exito", icon: "✅" };
+  } else {
+     return { nivel: "DOMINIO TÁCTICO", colorClass: "brief-ok", verdictClass: "exito", icon: "✅" };
+  }
+}
+
+function calcResults(prop, postEneVal) {
+  var t;
+  if(postEneVal >= 1.60) {
+    t = [
+      {u:9.0, r:"ÉXITO ATAQUE", d:"1h", ba:5, bd:35, tr:"2h"},
+      {u:6.0, r:"ÉXITO ATAQUE", d:"1.5h", ba:7, bd:25, tr:"2.5h"},
+      {u:4.5, r:"ÉXITO ATAQUE", d:"2h", ba:10, bd:15, tr:"4h"},
+      {u:3.5, r:"FRACASO", d:"3h", ba:15, bd:10, tr:"5h"},
+      {u:0, r:"FRACASO", d:"1.5h", ba:25, bd:5, tr:"6h"}
+    ];
+  } else if(postEneVal >= 1.30) {
+    t = [
+      {u:6.0, r:"ÉXITO ATAQUE", d:"1h", ba:5, bd:35, tr:"2h"},
+      {u:4.0, r:"ÉXITO ATAQUE", d:"1.5h", ba:8, bd:20, tr:"3h"},
+      {u:3.0, r:"ÉXITO ATAQUE", d:"2h", ba:12, bd:15, tr:"4h"},
+      {u:2.0, r:"FRACASO", d:"2.5h", ba:18, bd:10, tr:"5h"},
+      {u:0, r:"FRACASO", d:"1.5h", ba:25, bd:5, tr:"6h"}
+    ];
+  } else {
+    t = [
+      {u:5.0, r:"ÉXITO ATAQUE", d:"1h", ba:4, bd:40, tr:"1.5h"},
+      {u:3.5, r:"ÉXITO ATAQUE", d:"1.5h", ba:6, bd:25, tr:"2.5h"},
+      {u:2.5, r:"ÉXITO ATAQUE", d:"2h", ba:9, bd:15, tr:"3h"},
+      {u:1.5, r:"FRACASO", d:"2h", ba:15, bd:10, tr:"4.5h"},
+      {u:0, r:"FRACASO", d:"1h", ba:20, bd:5, tr:"5h"}
+    ];
+  }
+  for (var i = 0; i < t.length; i++) {
+    if (prop >= t[i].u) return t[i];
+  }
+  return t[t.length - 1];
+}
+
+function velProg(ratio, terreno, postEneVal, isAPie, visibilidad){
+  if (postEneVal >= 1.60) return "N/A (Ruptura)";
+  var t;
+  if (postEneVal >= 1.30) { 
+    if (isAPie) {
+      t = { playa:{2:0.5,3:0.6,4:0.7,5:0.8,6:0.9}, facil:{2:0.6,3:0.7,4:0.8,5:0.9,6:1.0}, med:{2:0.4,3:0.5,4:0.6,5:0.7,6:0.8}, dificil:{2:0.3,3:0.3,4:0.5,5:0.5,6:0.6} }[terreno] || {2:0.6,3:0.7,4:0.8,5:0.9,6:1.0};
+    } else {
+      t = { playa:{2:0.7,3:1.0,4:1.2,5:1.3,6:1.5}, facil:{2:0.9,3:1.2,4:1.4,5:1.5,6:1.7}, med:{2:0.6,3:0.75,4:1.0,5:1.1,6:1.3}, dificil:{2:0.2,3:0.3,4:0.5,5:0.6,6:0.6} }[terreno] || {2:0.9,3:1.2,4:1.4,5:1.5,6:1.7};
+    }
+  } else { 
+    if (isAPie) {
+      t = { playa:{2:0.8,3:1.0,4:1.2,5:1.4,6:1.5}, facil:{2:1.0,3:1.2,4:1.4,5:1.6,6:1.7}, med:{2:0.7,3:0.9,4:1.1,5:1.3,6:1.5}, dificil:{2:0.3,3:0.5,4:0.8,5:0.9,6:1.0} }[terreno] || {2:1.0,3:1.2,4:1.4,5:1.6,6:1.7};
+    } else {
+      t = { playa:{2:1.2,3:1.8,4:2.2,5:2.4,6:2.8}, facil:{2:1.5,3:2.0,4:2.4,5:2.6,6:3.0}, med:{2:1.0,3:1.3,4:1.75,5:2.0,6:2.3}, dificil:{2:0.6,3:0.8,4:0.9,5:1.0,6:1.1} }[terreno] || {2:1.5,3:2.0,4:2.4,5:2.6,6:3.0};
+    }
+  }
+  
+  var keys = Object.keys(t).map(Number).sort(function(a,b){return a-b;});
+  var v = t[2];
+  for(var i=0; i<keys.length; i++) {
+    if(ratio >= keys[i]) v = t[keys[i]];
+  }
+  if (visibilidad !== 'dia') v = v / 2;
+  return v.toFixed(1) + " km/h";
+}
+
+function generarRecomendacionComandante(misionText, classif) {
+  var isAPie = true; 
+  var hasArmor = false;
+  
+  for (var id in state.prop) {
+    if(state.prop[id] > 0) {
+      var foundU = null;
+      for(var x=0; x<PROP.length; x++) { if(PROP[x].id === id) foundU = PROP[x]; }
+      if(foundU && foundU.cat === "combate" && foundU.mov !== "NADA") isAPie = false;
+      if(foundU && (foundU.mov === "8x8" || foundU.mov === "CADENAS")) hasArmor = true;
+    }
+  }
+
+  var eHeavy = false;
+  for (var id2 in state.ene) {
+    if(state.ene[id2] > 0) {
+      var foundE = null;
+      for(var y=0; y<ENE.length; y++) { if(ENE[y].id === id2) foundE = ENE[y]; }
+      if(foundE && (foundE.bli === "MEDIA" || foundE.bli === "PESADA")) eHeavy = true;
+    }
+  }
+
+  var recs = [];
+  if (classif.nivel === "NO RECOMENDADO") {
+    recs = [
+      "La maniobra actual resultaría en la culminación prematura de la fuerza. Se recomienda abortar el cruce de la Línea de Partida (LP) y fijar al enemigo mediante fuegos.",
+      "Pérdida de iniciativa inminente. Las fuerzas asignadas son insuficientes para sostener el esfuerzo principal. Requerida integración urgente de multiplicadores de combate antes de empeñar a la fuerza.",
+      "Desgaste inasumible proyectado. Se aconseja transición inmediata a postura defensiva y solicitar escalón de refuerzo al Mando Componente."
+    ];
+  } else if (classif.nivel === "RIESGO ALTO") {
+    recs = [
+      "Fuerza suficiente para fijar y contener, pero carece del ratio de ruptura necesario. Se prevé estancamiento táctico en la zona de contacto.",
+      "El ímpetu de la operación decaerá rápidamente. Recomendación: aislar el objetivo y preparar el asalto solo tras un ablandamiento previo masivo.",
+      "Alta fricción esperada. La maniobra requerirá un sostenimiento logístico continuo y el compromiso prematuro de la Reserva para evitar el colapso."
+    ];
+  } else if (classif.nivel === "ÉXITO PROBABLE") {
+    recs = [
+      "La correlación de fuerzas permite proceder con la ejecución. Se recomienda mantener el tempo de la operación y explotar las vulnerabilidades en los flancos.",
+      "Condiciones óptimas para alcanzar el objetivo. Mantener la sincronización de los apoyos para negar la capacidad de reacción del adversario.",
+      "Asalto viable. Se aconseja consolidar rápidamente el objetivo una vez tomado para repeler posibles contraataques enemigos en la fase de reorganización."
+    ];
+  } else {
+    recs = [
+      "Superioridad abrumadora. Se recomienda transición rápida a la explotación del éxito y persecución para colapsar la retaguardia enemiga.",
+      "Libertad de acción total. La fuerza tiene capacidad para desbordar las posiciones defensivas casi sin fricción. Proceder a la captura de objetivos profundos.",
+      "El dispositivo enemigo será neutralizado con rapidez. Planificar el asalto y proyectar de inmediato la fuerza hacia los objetivos de contingencia de la siguiente fase."
+    ];
+  }
+
+  var baseRec = recs[Math.floor(Math.random() * recs.length)];
+  var extra = [];
+  if (misionText.toLowerCase().indexOf("anfibio") !== -1) {
+    extra.push("Asegurar los puntos de desembarco y la cabeza de playa antes de proyectar poder de combate hacia el interior.");
+  }
+  if (isAPie) {
+    extra.push("Al carecer de medios protegidos, es imperativo maximizar el uso de ocultación, humo y terreno restrictivo en la aproximación.");
+  }
+  if (hasArmor && !isAPie) {
+    extra.push("Explotar la movilidad táctica y la potencia de choque de los elementos mecanizados para desequilibrar la defensa OPFOR.");
+  }
+  if (eHeavy) {
+    extra.push("Priorizar el despliegue escalonado de destacamentos contracarro (Spike) para neutralizar el blindaje pesado OPFOR identificado.");
+  }
+
+  var extraText = extra.length > 0 ? " " + extra[Math.floor(Math.random() * extra.length)] : "";
+  return "<span class='" + classif.colorClass + "'><strong>" + classif.nivel + "</strong>.</span> " + baseRec + extraText;
+}
+
+document.getElementById("btn-calc").addEventListener("click", function(){
+  var pD = calcBase("prop", true); 
+  var eD = calcBase("ene", true);
+  
+  var fHP = (parseFloat(document.getElementById("exp-prop").value) + parseFloat(document.getElementById("moral-prop").value)) / 2;
+  var fHE = (parseFloat(document.getElementById("exp-ene").value) + parseFloat(document.getElementById("moral-ene").value)) / 2;
+  var fN  = parseFloat(document.getElementById("naval").value);
+  var fA  = parseFloat(document.getElementById("air-ene").value);
+  var fPP = parseFloat(document.getElementById("pos-prop").value);
+  var fPE = parseFloat(document.getElementById("pos-ene").value);
+  var fO  = parseFloat(document.getElementById("obstaculo").value);
+  var tId = document.getElementById("terreno").value;
+  var vId = document.getElementById("visibilidad").value;
+
+  var cpPC = pD.cp * fPP * fO * fN * fHP;
+  var cpEC = eD.cp * fPE * fHE * fA;
+  var ratio = cpEC > 0 ? cpPC/cpEC : 99;
+  var res = calcResults(ratio, fPE);
+
+  var isAPie = true;
+  for (var id in state.prop) {
+    if(state.prop[id] > 0) {
+      var foundU = null;
+      for(var z=0; z<PROP.length; z++) { if(PROP[z].id === id) foundU = PROP[z]; }
+      if(foundU && foundU.cat === "combate" && foundU.mov !== "NADA") isAPie = false;
+    }
+  }
+
+  var classif = classifyRatio(ratio, fPE);
+
+  document.getElementById("r-cp-prop").textContent = cpPC.toFixed(2);
+  document.getElementById("r-cp-ene").textContent = cpEC.toFixed(2);
+  document.getElementById("r-prop").textContent = ratio.toFixed(2) + " : 1";
+  
+  var v = document.getElementById("r-verdict");
+  v.textContent = classif.icon + " " + classif.nivel;
+  v.className = "verdict " + classif.verdictClass;
+
+  var txtRatio = "";
+  if (classif.nivel === "NO RECOMENDADO") {
+      txtRatio = "totalmente insuficiente para garantizar éxito en maniobra ofensiva";
+  } else if (classif.nivel === "RIESGO ALTO") {
+      txtRatio = "suficiente para contención, pero insuficiente para garantizar la ruptura";
+  } else if (classif.nivel === "ÉXITO PROBABLE") {
+      txtRatio = "dentro de los parámetros doctrinales exigidos para asalto deliberado";
+  } else {
+      txtRatio = "abrumadora, lo que garantiza la superioridad táctica y la explotación del éxito";
+  }
+  document.getElementById("r-valoracion").innerHTML = "Valoración: La relación de fuerzas es <strong style='color:var(--text)'>" + txtRatio + "</strong> según parámetros OR5-014.";
+
+  document.getElementById("st-dur").textContent = res.d;
+  document.getElementById("st-ba").textContent = res.ba + "%";
+  document.getElementById("st-bd").textContent = res.bd + "%";
+  document.getElementById("st-tr").textContent = res.tr;
+  document.getElementById("st-vel").textContent = velProg(ratio, tId, fPE, isAPie, vId);
+  document.getElementById("st-fh").textContent = fHP.toFixed(2) + " / " + fHE.toFixed(2);
+  
+  document.getElementById("thr-prop").textContent = (cpPC*0.7).toFixed(2);
+  document.getElementById("thr-ene").textContent = (cpEC*0.5).toFixed(2);
+  
+  var alertsList = document.getElementById("tacticas-alertas-list");
+  var logs = pD.logs.concat(eD.logs).filter(function(item, pos, self) {
+      return self.indexOf(item) === pos;
+  });
+
+  if (logs.length > 0) {
+    var logsHtml = "";
+    for(var k=0; k<logs.length; k++) {
+      var l = logs[k];
+      if(l.indexOf('✓') !== -1) logsHtml += "<span style='color:var(--green)'>" + l + "</span><br>";
+      else if(l.indexOf('⚠') !== -1) logsHtml += "<span style='color:var(--red)'>" + l + "</span><br>";
+      else if(l.indexOf('ℹ️') !== -1 || l.indexOf('❄️') !== -1) logsHtml += "<span style='color:var(--gold)'>" + l + "</span><br>";
+      else logsHtml += l + "<br>";
+    }
+    alertsList.innerHTML = logsHtml;
+    document.getElementById("tacticas-alertas-container").style.display = "block";
+  } else { 
+    document.getElementById("tacticas-alertas-container").style.display = "none"; 
+  }
+  
+  var tbody = document.getElementById("hist-tbody");
+  tbody.innerHTML = "";
+  for(var h=0; h<HIST.length; h++) {
+    var row = HIST[h];
+    var activa = row.u && ratio >= row.u;
+    var tr = document.createElement("tr");
+    if(activa) tr.className="active-row";
+    tr.innerHTML = "<td>" + (activa ? "→ " : "") + row.m + "</td><td>" + row.p + "</td><td>" + row.o + "</td>";
+    tbody.appendChild(tr);
+  }
+
+  document.getElementById("result-section").classList.add("show");
+  
+  var d = new Date();
+  var dateStr = d.getFullYear() + "-" + 
+                ("0" + (d.getMonth()+1)).slice(-2) + "-" + 
+                ("0" + d.getDate()).slice(-2) + " " + 
+                ("0" + d.getHours()).slice(-2) + ":" + 
+                ("0" + d.getMinutes()).slice(-2);
+
+  var selNaval = document.getElementById('naval');
+  var txtApoyoNaval = selNaval.options[selNaval.selectedIndex].text;
+  
+  var selAirEne = document.getElementById('air-ene');
+  var txtAirEne = selAirEne.options[selAirEne.selectedIndex].text;
+  
+  var selPosProp = document.getElementById('pos-prop');
+  var misionText = selPosProp.options[selPosProp.selectedIndex].text;
+
+  var txtMision = generarRecomendacionComandante(misionText, classif);
+
+  var totalPropTroops = 0;
+  for(var pid in state.prop) {
+    var qty = state.prop[pid];
+    if (pid.indexOf("cia_") === 0) totalPropTroops += 100 * qty;
+    else if (pid.indexOf("bty_") === 0) totalPropTroops += 80 * qty;
+    else totalPropTroops += 30 * qty;
+  }
+
+  var percentBajas = res.ba; 
+  var totalBajas = Math.round((totalPropTroops * percentBajas) / 100);
+  
+  var kia = Math.round(totalBajas * 0.10);
+  var p1 = Math.round(totalBajas * 0.15);
+  var p2 = Math.round(totalBajas * 0.20);
+  var p4 = Math.round(totalBajas * 0.03);
+  var p3 = totalBajas - kia - p1 - p2 - p4;
+  if(p3 < 0) p3 = 0;
+  
+  var helos = Math.ceil((p1 + p2) / 4);
+  if(helos === 0 && (p1+p2) > 0) helos = 1;
+
+  var txtSanidad = "";
+  if (totalPropTroops > 0) {
+    txtSanidad = "4. GESTIÓN DE BAJAS Y SANIDAD TÁCTICA (Ratio Supervivencia 1:9 por TCCC/IFAK):<br>" +
+    "> Fuerza total BLUEFOR desplegada (est.): " + totalPropTroops + " efectivos.<br>" +
+    "> Bajas totales esperadas (" + percentBajas + "%): <span class='brief-alert'>" + totalBajas + " efectivos</span>.<br><br>" +
+    "> DESGLOSE DOCTRINAL DE BAJAS:<br>" +
+    "&nbsp;&nbsp;[KIA] Muertos en Acción (10%): <strong>" + kia + "</strong> efectivos.<br>" +
+    "&nbsp;&nbsp;[WIA] Heridos en Acción (90%): <strong>" + (totalBajas - kia) + "</strong> efectivos, desglosados en:<br>" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;├─ [P1 / ROJO] Inmediata (~15%): <strong>" + p1 + "</strong> (Req. HELIMEDEVAC urgente).<br>" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;├─ [P2 / AMARILLO] Urgente (~20%): <strong>" + p2 + "</strong> (Estabilizados con torniquete en terreno).<br>" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;├─ [P3 / VERDE] Leve (~52%): <strong>" + p3 + "</strong> (Recuperables en Puesto de Socorro/Role 1).<br>" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;└─ [P4 / NEGRO] Expectante (~3%): <strong>" + p4 + "</strong> (Irrecuperables, probable transición a DOW).<br><br>" +
+    "> PLAN DE EVACUACIÓN Y SOSTENIMIENTO (Regla 10:1:2 OTAN):<br>" +
+    "&nbsp;&nbsp;- <strong>10 min (TCCC/IFAK):</strong> Tratamiento táctico inicial (control de sangrado) por binomio.<br>" +
+    "&nbsp;&nbsp;- <strong>1 hora (ROLE 1):</strong> Evacuación a centro de resucitación. Preposicionar al menos <strong>1x ROLE 1 / ROLE 2 Ligero</strong>.<br>" +
+    "&nbsp;&nbsp;- <strong>2 horas (ROLE 2/3 quirófano):</strong> Evacuación de los " + (p1+p2) + " heridos críticos (P1+P2) a cirugía estabilizadora.<br>" +
+    "&nbsp;&nbsp;- <strong>MEDIOS:</strong> Activar un mínimo de <strong>" + helos + "x plataformas HELIMEDEVAC/CASEVAC</strong>.<br><br>";
+  } else {
+    txtSanidad = "4. GESTIÓN DE BAJAS Y SANIDAD TÁCTICA (Ratio Supervivencia 1:9 por TCCC/IFAK):<br>> Sin unidades desplegadas para el cálculo de bajas.<br><br>";
+  }
+
+  var totalEneTroops = 0;
+  for(var eid in state.ene) {
+    var qtyE = state.ene[eid];
+    if (eid.indexOf("e_cia_") === 0) totalEneTroops += 100 * qtyE;
+    else if (eid.indexOf("e_bty_") === 0) totalEneTroops += 80 * qtyE;
+    else totalEneTroops += 30 * qtyE;
+  }
+
+  var totalPow = Math.round(totalEneTroops * 0.10);
+  var tropaPow = Math.round(totalPow * 0.80);
+  var subofPow = Math.round(totalPow * 0.15);
+  var oficPow = totalPow - tropaPow - subofPow;
+  if(oficPow < 0) oficPow = 0;
+
+  var percentBajasEne = res.bd; 
+  var totalBajasPow = Math.round((totalPow * percentBajasEne) / 100);
+  
+  var kiaPow = Math.round(totalBajasPow * 0.10);
+  var p1Pow = Math.round(totalBajasPow * 0.15);
+  var p2Pow = Math.round(totalBajasPow * 0.20);
+  var p4Pow = Math.round(totalBajasPow * 0.03);
+  var p3Pow = totalBajasPow - kiaPow - p1Pow - p2Pow - p4Pow;
+  if(p3Pow < 0) p3Pow = 0;
+
+  var txtPow = "";
+  if (totalEneTroops > 0) {
+    txtPow = "5. PRISIONEROS DE GUERRA (EPW):<br>" +
+    "> Total POW (al 10%): <strong>" + totalPow + "</strong> Prisioneros capturados.<br>" +
+    "&nbsp;&nbsp;├─ <strong>" + tropaPow + "</strong> Tropa Regular (80%)<br>" +
+    "&nbsp;&nbsp;├─ <strong>" + subofPow + "</strong> Suboficiales (15%)<br>" +
+    "&nbsp;&nbsp;└─ <strong>" + oficPow + "</strong> Oficiales (5%)<br><br>" +
+    "> GESTIÓN DE BAJAS EPW (Aplicando tasa de bajas OPFOR del " + percentBajasEne + "% y criterios TCCC):<br>" +
+    "&nbsp;&nbsp;[KIA / DOW] Fallecidos en custodia (10%): <strong>" + kiaPow + "</strong> efectivos.<br>" +
+    "&nbsp;&nbsp;[WIA] Prisioneros Heridos (90%): <span class='brief-alert'>" + (totalBajasPow - kiaPow) + "</span> efectivos, desglosados en:<br>" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;├─ [P1 / ROJO] Inmediata (~15%): <strong>" + p1Pow + "</strong> (Obligación de MEDEVAC compartida).<br>" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;├─ [P2 / AMARILLO] Urgente (~20%): <strong>" + p2Pow + "</strong> (Estabilizados con torniquete).<br>" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;├─ [P3 / VERDE] Leve (~52%): <strong>" + p3Pow + "</strong> (Requieren custodia médica básica).<br>" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;└─ [P4 / NEGRO] Expectante (~3%): <strong>" + p4Pow + "</strong>.<br><br>" +
+    "<em>* Anexo consolidado para integración en el dosier diario de las 19:15.</em>";
+  } else {
+    txtPow = "5. PRISIONEROS DE GUERRA (EPW):<br>> Sin fuerzas enemigas desplegadas para el cálculo de captura.<br><br><em>* Anexo consolidado para integración en el dosier diario de las 19:15.</em>";
+  }
+
+  var briefing = document.getElementById('static-briefing');
+  var briefHtml = "<div class='brief-title'>ANALISIS POR AREAS FUNCIONALES DE LA SIMULACION</div>" +
+    "DTG: " + dateStr + "Z<br><br>" +
+    "1. FACTORES MULTIPLICADORES CONSIDERADOS:<br>" +
+    "> Apoyo Naval (" + fN + "x): " + txtApoyoNaval + "<br>" +
+    "> Factor Humano BLUEFOR (" + fHP.toFixed(2) + "x) / OPFOR (" + fHE.toFixed(2) + "x)<br>" +
+    "> Dominio Aéreo Enemigo (" + fA + "x): " + txtAirEne + "<br><br>" +
+    "2. IMPACTO DE ENTORNO Y ASIMETRÍAS:<br>" +
+    "> Obstáculo bajo fuego: " + fO + "x<br>" +
+    "> Ventajas tácticas activas: " + (logs.length > 0 ? logs.length : "Ninguna detectada") + "<br><br>" +
+    "3. RECOMENDACIÓN AL COMANDANTE:<br>" +
+    "> Misión: " + txtMision + "<br><br>" +
+    txtSanidad + txtPow;
+    
+  briefing.innerHTML = briefHtml;
+  
+  document.getElementById('briefing-section').style.display = 'block';
+  document.getElementById("result-section").scrollIntoView({behavior:"smooth"});
+  state.lastResult = { prop: ratio, res: res, cpPC: cpPC, cpEC: cpEC, logs: logs, tId: tId };
+});
+
+// Inicializar la interfaz visual al arrancar — DOMContentLoaded garantiza que el DOM esté listo en iOS
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderAll);
+} else {
+  renderAll();
+}
+
+// ═══ PWA: SERVICE WORKER INLINE ═══
+// Registra un SW desde blob para funcionar offline sin servidor
+(function() {
+  if (!('serviceWorker' in navigator)) return;
+
+  var swCode = [
+    'var CACHE = "kinetica-v1";',
+    'var ASSETS = [self.location.href];',
+    'self.addEventListener("install", function(e) {',
+    '  e.waitUntil(',
+    '    caches.open(CACHE).then(function(c) { return c.addAll(ASSETS); })',
+    '  );',
+    '  self.skipWaiting();',
+    '});',
+    'self.addEventListener("activate", function(e) {',
+    '  e.waitUntil(self.clients.claim());',
+    '});',
+    'self.addEventListener("fetch", function(e) {',
+    '  e.respondWith(',
+    '    caches.match(e.request).then(function(r) {',
+    '      return r || fetch(e.request).catch(function() { return caches.match(e.request); });',
+    '    })',
+    '  );',
+    '});'
+  ].join('\n');
+
+  try {
+    var blob = new Blob([swCode], {type: 'application/javascript'});
+    var swUrl = URL.createObjectURL(blob);
+    navigator.serviceWorker.register(swUrl, {scope: '/'}).catch(function() {
+      // SW desde blob puede no funcionar en file://, OK — funciona desde https://
+    });
+  } catch(e) {}
+})();
+
+// ═══ BANNER DE INSTALACIÓN iOS ═══
+(function() {
+  var banner = document.getElementById('pwa-banner');
+  var closeBtn = document.getElementById('pwa-banner-close');
+  if (!banner) return;
+
+  // Mostrar solo en iOS Safari si no está ya instalada como PWA
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isStandalone = window.navigator.standalone === true;
+  var dismissed = false;
+  try { dismissed = !!localStorage.getItem('kinetica-pwa-dismissed'); } catch(e) {}
+
+  if (isIOS && !isStandalone && !dismissed) {
+    banner.classList.add('visible');
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      banner.classList.remove('visible');
+      try { localStorage.setItem('kinetica-pwa-dismissed', '1'); } catch(e) {}
+    });
+  }
+
+  // Android / Desktop: capturar evento beforeinstallprompt
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    banner.classList.add('visible');
+    if (banner.querySelector('#pwa-banner-txt')) {
+      banner.querySelector('#pwa-banner-txt').innerHTML =
+        '<strong>Instalar KINETICA-SET</strong>Disponible para instalar como app offline en este dispositivo.';
+    }
+    var installBtn = document.createElement('button');
+    installBtn.textContent = 'INSTALAR';
+    installBtn.style.cssText = 'background:#38bdf8;border:none;color:#0b0f19;border-radius:4px;padding:8px 14px;cursor:pointer;font-family:inherit;font-weight:700;font-size:12px;flex-shrink:0;';
+    banner.appendChild(installBtn);
+    installBtn.addEventListener('click', function() {
+      e.prompt();
+      e.userChoice.then(function() { banner.classList.remove('visible'); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
